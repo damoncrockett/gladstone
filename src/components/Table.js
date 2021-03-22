@@ -82,13 +82,15 @@ class Table extends Component {
       .enter()
       .append('div')
       .attr('class','thumb')
-      .html(d => "<a href=" + "http://localhost:8888/" + d.fullsize + " target='_blank'>" + "<img src=" + "http://localhost:8888/" + d.imgpath + ">" + "</a>")
+      .html(d => "<a href=" + d.fullsize + " target='_blank'>" + "<img src=" + d.imgpath + ">" + "</a>")
+      //.html(d => "<a href=" + "http://localhost:8888/" + d.fullsize + " target='_blank'>" + "<img src=" + "http://localhost:8888/" + d.imgpath + ">" + "</a>")
 
     select('div.dataTable')
       .select('div.imthumb')
       .selectAll('div.thumb')
       .data(this.props.data)
-      .html(d => "<a href=" + "http://localhost:8888/" +  d.fullsize + " target='_blank'>" + "<img src=" + "http://localhost:8888/" + d.imgpath + ">" + "</a>")
+      .html(d => "<a href=" + d.fullsize + " target='_blank'>" + "<img src=" + d.imgpath + ">" + "</a>")
+      //.html(d => "<a href=" + "http://localhost:8888/" +  d.fullsize + " target='_blank'>" + "<img src=" + "http://localhost:8888/" + d.imgpath + ">" + "</a>")
 
     select('div.dataTable')
       .select('div.notes')

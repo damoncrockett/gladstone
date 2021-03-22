@@ -24,8 +24,8 @@ class App extends Component {
   }
 
   getData() {
-    fetch('http://localhost:8888/gladstone.json')
-    //fetch('gladstone.json')
+    //fetch('http://localhost:8888/gladstone.json')
+    fetch('gladstone.json')
       .then(response => response.json())
       .then(data => this.setState({ data: orderBy(data, 'sdate', 'asc') }))
     }
