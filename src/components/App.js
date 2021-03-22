@@ -9,36 +9,56 @@ class App extends Component {
 
     this.state = { // global state
       data: null,
-      creator: false,
-      date: true,
-      sortVar: 'date'
+      creatorD: false,
+      dateD: false,
+      creatorA: false,
+      dateA: true,
+      sortVar: 'dateA'
     };
 
     this.getData = this.getData.bind(this);
-    this.handleCreator = this.handleCreator.bind(this);
-    this.handleDate = this.handleDate.bind(this);
+    this.handleCreatorD = this.handleCreatorD.bind(this);
+    this.handleDateD = this.handleDateD.bind(this);
+    this.handleCreatorA = this.handleCreatorA.bind(this);
+    this.handleDateA = this.handleDateA.bind(this);
   }
 
   getData() {
     fetch('http://localhost:8888/gladstone.json')
     //fetch('gladstone.json')
       .then(response => response.json())
-      .then(data => this.setState({ data: orderBy(data, 'cpdate', 'desc') }))
+      .then(data => this.setState({ data: orderBy(data, 'sdate', 'asc') }))
     }
 
-  handleCreator() {
-    this.setState({ creator: true, date: false, sortVar: 'creator' });
+  handleCreatorD() {
+    this.setState({ creatorD: true, dateD: false, creatorA: false, dateA: false, sortVar: 'creatorD' });
 
     this.setState(state => ({
       data: orderBy(this.state.data, 'creator', 'desc')
     }));
   }
 
-  handleDate() {
-    this.setState({ creator: false, date: true, sortVar: 'date' });
+  handleDateD() {
+    this.setState({ creatorD: false, dateD: true, creatorA: false, dateA: false, sortVar: 'dateD' });
 
     this.setState(state => ({
-      data: orderBy(this.state.data, 'cpdate', 'desc')
+      data: orderBy(this.state.data, 'sdate', 'desc')
+    }));
+  }
+
+  handleCreatorA() {
+    this.setState({ creatorD: false, dateD: false, creatorA: true, dateA: false, sortVar: 'creatorA' });
+
+    this.setState(state => ({
+      data: orderBy(this.state.data, 'creator', 'asc')
+    }));
+  }
+
+  handleDateA() {
+    this.setState({ creatorD: false, dateD: false, creatorA: false, dateA: true, sortVar: 'dateA' });
+
+    this.setState(state => ({
+      data: orderBy(this.state.data, 'sdate', 'asc')
     }));
   }
 
@@ -50,19 +70,29 @@ class App extends Component {
     const bkgd = 'white';
     const stroke = '#909090';
 
-    const creatorStyle = {
-      backgroundColor: this.state.creator ? stroke : bkgd,
+    const creatorStyleD = {
+      backgroundColor: this.state.creatorD ? stroke : bkgd,
     };
 
-    const dateStyle = {
-      backgroundColor: this.state.date ? stroke : bkgd,
+    const creatorStyleA = {
+      backgroundColor: this.state.creatorA ? stroke : bkgd,
+    };
+
+    const dateStyleD = {
+      backgroundColor: this.state.dateD ? stroke : bkgd,
+    };
+
+    const dateStyleA = {
+      backgroundColor: this.state.dateA ? stroke : bkgd,
     };
 
     return (
       <div className='app'>
         <div className='buttonStrip'>
-          <button onClick={this.handleCreator} style={creatorStyle}>CREATOR</button>
-          <button onClick={this.handleDate} style={dateStyle}>DATE</button>
+          <button onClick={this.handleCreatorD} style={creatorStyleD}>CREATOR ⭣</button>
+          <button onClick={this.handleCreatorA} style={creatorStyleA}>CREATOR ⭡</button>
+          <button onClick={this.handleDateD} style={dateStyleD}>DATE ⭣</button>
+          <button onClick={this.handleDateA} style={dateStyleA}>DATE ⭡</button>
         </div>
         <Table
           data={this.state.data}

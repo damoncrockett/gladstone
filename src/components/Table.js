@@ -39,6 +39,13 @@ class Table extends Component {
       .attr('class','title')
 
     select('div.dataTable')
+      .selectAll('div.imthumb')
+      .data([0])
+      .enter()
+      .append('div')
+      .attr('class','imthumb')
+
+    select('div.dataTable')
       .selectAll('div.notes')
       .data([0])
       .enter()
@@ -68,6 +75,20 @@ class Table extends Component {
       .data(this.props.data)
       .html(d => "<p>" + "<span>" + d.title + "</span>" + "<br/><br/>" + d.cpdate + "<br/><br/>" + d.creator + "</p>")
 
+    select('div.dataTable')
+      .select('div.imthumb')
+      .selectAll('div.thumb')
+      .data(this.props.data)
+      .enter()
+      .append('div')
+      .attr('class','thumb')
+      .html(d => "<a href=" + "http://localhost:8888/" + d.fullsize + " target='_blank'>" + "<img src=" + "http://localhost:8888/" + d.imgpath + ">" + "</a>")
+
+    select('div.dataTable')
+      .select('div.imthumb')
+      .selectAll('div.thumb')
+      .data(this.props.data)
+      .html(d => "<a href=" + "http://localhost:8888/" +  d.fullsize + " target='_blank'>" + "<img src=" + "http://localhost:8888/" + d.imgpath + ">" + "</a>")
 
     select('div.dataTable')
       .select('div.notes')

@@ -10,21 +10,34 @@
   margin-top: 50px;
   width: 300px;
   float: left;
-  background-color: #909090;
-  color: #ffffff;
 }
 
 .summary {
   margin-top: 50px;
   width: 300px;
   float: left;
+  background-color: #909090;
+  color: #ffffff;
+}
+
+.imthumb {
+  margin-top: 50px;
+  width: 360px;
+  float: left;
+  background-color: #909090;
+  color: #ffffff;
+}
+.thumb {
+  height: 300px;
+  width: 300px;
+  margin: 40px;
 }
 
 p {
   height: 300px;
   font-family: "Open Sans";
   font-size: 12px;
-  margin: 20px;
+  margin: 40px;
 }
 
 .buttonStrip {
@@ -49,4 +62,8 @@ button, button:focus, button:active {
 span {
   font-weight: bolder;
   font-size: 18px;
+}
+
+button:hover {
+  background-color: #ffa500 !important;
 }
