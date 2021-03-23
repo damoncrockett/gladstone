@@ -67,13 +67,13 @@ class Table extends Component {
       .data(this.props.data)
       .enter()
       .append('div')
-      .html(d => "<p>" + "<span>" + d.title + "</span>" + "<br/><br/>" + d.cpdate + "<br/><br/>" + d.creator + "</p>")
+      .html(d => "<p>" + "<a href=" + d.itemurl + " target='_blank'>" + "<span>" + d.title + "</span>" + "</a>" + "<br/><br/>" + d.cpdate + "<br/><br/><b>" + d.creator + "</b></p>")
 
     select('div.dataTable')
       .select('div.title')
       .selectAll('div')
       .data(this.props.data)
-      .html(d => "<p>" + "<span>" + d.title + "</span>" + "<br/><br/>" + d.cpdate + "<br/><br/>" + d.creator + "</p>")
+      .html(d => "<p>" + "<a href=" + d.itemurl + " target='_blank'>" + "<span>" + d.title + "</span>" + "</a>" + "<br/><br/>" + d.cpdate + "<br/><br/><b>" + d.creator + "</b></p>")
 
     select('div.dataTable')
       .select('div.imthumb')
