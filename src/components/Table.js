@@ -46,18 +46,19 @@ class Table extends Component {
       .attr('class','imthumb')
 
     select('div.dataTable')
-      .selectAll('div.notes')
-      .data([0])
-      .enter()
-      .append('div')
-      .attr('class','notes')
-
-    select('div.dataTable')
       .selectAll('div.summary')
       .data([0])
       .enter()
       .append('div')
       .attr('class','summary')
+/*
+    select('div.dataTable')
+      .selectAll('div.notes')
+      .data([0])
+      .enter()
+      .append('div')
+      .attr('class','notes')
+*/
   }
 
   drawTable() {
@@ -82,31 +83,17 @@ class Table extends Component {
       .enter()
       .append('div')
       .attr('class','thumb')
-      .html(d => "<a href=" + d.fullsize + " target='_blank'>" + "<img src=" + d.imgpath + ">" + "</a>")
+      .html(d => "<a href=" + d.fullsize + " target='_blank'>" + "<img src=" + d.imgpath + ">" + "</a><a href=" + d.fullsize_second + " target='_blank'>" + "<img src=" + d.imgpath_second + ">" + "</a>")
       //.html(d => "<a href=" + "http://localhost:8888/" + d.fullsize + " target='_blank'>" + "<img src=" + "http://localhost:8888/" + d.imgpath + ">" + "</a>")
 
     select('div.dataTable')
       .select('div.imthumb')
       .selectAll('div.thumb')
       .data(this.props.data)
-      .html(d => "<a href=" + d.fullsize + " target='_blank'>" + "<img src=" + d.imgpath + ">" + "</a>")
+      .html(d => "<a href=" + d.fullsize + " target='_blank'>" + "<img src=" + d.imgpath + ">" + "</a><a href=" + d.fullsize_second + " target='_blank'>" + "<img src=" + d.imgpath_second + ">" + "</a>")
       //.html(d => "<a href=" + "http://localhost:8888/" +  d.fullsize + " target='_blank'>" + "<img src=" + "http://localhost:8888/" + d.imgpath + ">" + "</a>")
 
     select('div.dataTable')
-      .select('div.notes')
-      .selectAll('div')
-      .data(this.props.data)
-      .enter()
-      .append('div')
-      .html(d => "<p>" + d.notes + "</p>")
-
-    select('div.dataTable')
-      .select('div.notes')
-      .selectAll('div')
-      .data(this.props.data)
-      .html(d => "<p>" + d.notes + "</p>")
-
-    select('div.dataTable')
       .select('div.summary')
       .selectAll('div')
       .data(this.props.data)
@@ -120,6 +107,21 @@ class Table extends Component {
       .data(this.props.data)
       .html(d => "<p>" + d.summary + "</p>")
 
+/*
+    select('div.dataTable')
+      .select('div.notes')
+      .selectAll('div')
+      .data(this.props.data)
+      .enter()
+      .append('div')
+      .html(d => "<p>" + d.notes + "</p>")
+
+    select('div.dataTable')
+      .select('div.notes')
+      .selectAll('div')
+      .data(this.props.data)
+      .html(d => "<p>" + d.notes + "</p>")
+*/
   }
 
   render() {

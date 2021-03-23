@@ -5,6 +5,10 @@ a:visited { color: #000000; text-decoration: none; }
 a:active { color: #000000; text-decoration: none; }
 a:hover { text-decoration: none; }
 
+.dataTable {
+  overflow-x: auto;
+}
+
 .title {
   margin-top: 50px;
   width: 300px;
@@ -15,37 +19,40 @@ a:hover { text-decoration: none; }
   margin-top: 50px;
   width: 300px;
   float: left;
+  background-color: #909090;
+  color: #ffffff;
 }
 
 .summary {
   margin-top: 50px;
   width: 300px;
   float: left;
-  background-color: #909090;
-  color: #ffffff;
 }
 
 .imthumb {
   margin-top: 50px;
-  width: 360px;
+  width: 640px;
   float: left;
   background-color: #909090;
   color: #ffffff;
 }
 .thumb {
   height: 300px;
-  width: 300px;
-  margin: 40px;
+  width: 600px;
+  margin: 20px;
 }
 
 p {
   height: 300px;
   font-family: "Open Sans";
   font-size: 12px;
-  margin: 40px;
+  margin: 20px;
 }
 
 .buttonStrip {
+  position: fixed;
+  top: 20px;
+  left: 20px;
   display: inline-block;
   padding-bottom: 10px;
   padding-top: 10px;
