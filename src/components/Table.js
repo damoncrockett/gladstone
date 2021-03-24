@@ -51,14 +51,14 @@ class Table extends Component {
       .enter()
       .append('div')
       .attr('class','summary')
-/*
+
     select('div.dataTable')
       .selectAll('div.notes')
       .data([0])
       .enter()
       .append('div')
       .attr('class','notes')
-*/
+
   }
 
   drawTable() {
@@ -107,7 +107,7 @@ class Table extends Component {
       .data(this.props.data)
       .html(d => "<p>" + d.summary + "</p>")
 
-/*
+
     select('div.dataTable')
       .select('div.notes')
       .selectAll('div')
@@ -121,7 +121,7 @@ class Table extends Component {
       .selectAll('div')
       .data(this.props.data)
       .html(d => "<p>" + d.notes + "</p>")
-*/
+
   }
 
   render() {
